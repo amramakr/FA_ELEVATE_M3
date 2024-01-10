@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignUp form</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <h1>Registeration form</h1>
+    <form action = "success.html" onsubmit = "return validateForm()">
+     <div class="formdesign"> 
+        <label for="name"><b>Full Name:</b></label>
+        <input id="name" type="text" required onkeyup="validateName()" placeholder="Enter username" >
+        <span id="usernameError"></span>  
+    </div>
+    </br>
+    <div class="formdesign">
+        <label for="email"><b>Email Id:</b></label>
+        <input id="email" type="text" required onkeyup="validateEmail()" placeholder="Enter email id" >
+        <span id="emailError"></span>    
+    </div>  
+    </br>
+    <div class="formdesign">
+        <label for="contact"><b>Phone number:</b></label>
+        <input id="contact" type="phone"  required onkeyup="validateContact()" placeholder="Enter contact number">
+        <span id="contactError"></span>
+    </div>
+    </br>
+    <div class="formdesign">
+        <label for="pswd"><b>Password:</b></label>
+        <input id="pswd" type="password"  required onkeyup="validatePassword()" placeholder="Enter password">
+        <span id="passwordError"></span>
+    </div>
+    </br>
+    <div class="formdesign">
+        <label for="pswdconfirm"><b>Confirm Password:</b></label>
+        <input id="pswdconfirm" type="password" required onkeyup="validateConfirm()" placeholder="Confirm password">
+        <span id="confirmPswdError"></span>
+    </div>
+    </br>
+    <button id="submit" type ="submit"><b>Submit</b></button>
+    <span id="subError"></span>
+</form>
+
+</body>
+</html>

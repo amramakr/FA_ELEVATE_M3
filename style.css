@@ -1,0 +1,29 @@
+body{
+  padding: 10px 350px;
+  background-color: cyan;
+}
+.formdesign{
+    font-size: 20px;
+}
+.formdesign input{
+    width: 30%;
+    padding : 12px 20px;
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+#submit{
+
+    border-radius: 9px;
+    width: 100px;
+    height:30px;
+    font-size: 20px;
+    margin: 22px 10px;
+    background-color: black;
+    color: white;
+    
+}
+    span{
+    color:red;
+}
