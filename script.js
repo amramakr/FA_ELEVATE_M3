@@ -1,13 +1,20 @@
-function validateName(){
-   let nameError = document.getElementById('usernameError');
-   let userName = document.getElementById('name').value;
 
-if(userName.trim() == ''){
+function validateName(){
+   let nameError = document.querySelector('#usernameError');
+   let userName =  document.querySelector('#name').value;
+   let userName_value = userName.trim();
+   let isvalidName = /^([a-zA-Z])+(\s)+[a-zA-Z]+$/;
+
+if(userName_value == ''){
     nameError.innerHTML = "Enter a valid username";
     return false;
 }
-else if(userName.length < 4){
-    nameError.innerHTML = "*Length of username is too short";
+else if(!isvalidName.test(userName_value)){
+    nameError.innerHTML = "*Enter your full name using alphabets and space only";
+    return false;
+}
+else if(userName_value.length < 4){
+    nameError.innerHTML = "Enter your full Name";
     return false;
 }
 else {
@@ -16,17 +23,18 @@ else {
 }
 }   
 function validateEmail(){
-   let userEmail = document.getElementById('email').value;
-   let emailidError = document.getElementById('emailError');
+   let userEmail =    document.querySelector('#email').value;
+   let emailidError = document.querySelector('#emailError');
    let regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+   let userEmail_value = userEmail.trim();
 
-if(userEmail.trim() == ''){
+if(userEmail_value == ''){
     emailidError.innerHTML = "Enter a valid email";
     return false;
 }
 else if
-    (!userEmail.match(regEx)){
-        emailidError.innerHTML = "*Enter email in global format"; 
+    (!userEmail_value.match(regEx)){
+        emailidError.innerHTML = "*Email Address must be in valid format with @ symbol"; 
         return false;
     }
 else{
@@ -35,58 +43,84 @@ else{
 }
 }
 function validateContact(){
-    let userContact = document.getElementById('contact').value;
-    let phoneError = document.getElementById('contactError');
+    let userContact = document.querySelector('#contact').value;
+    let phoneError =  document.querySelector('#contactError');
 
-    if(userContact.trim() == ''){
+    let userContact_value  = userContact.trim();
+    let isValidNumber = /^[0-9]*$/;
+
+    if(userContact_value == ''){
         phoneError.innerHTML = "Enter a valid number";
         return false;
     }
-    else if(userContact.length != 10){
-        phoneError.innerHTML = "Enter 10 digit valid number";
+    else if(!isValidNumber.test(userContact_value)){
+        phoneError.innerHTML = "Contact number must be numeric";
         return false;
     }
+      else if (userContact_value.length != 10){
+           phoneError.innerHTML = "Contact number must have 10 digits";
+           return false;
+      }
     else{
         phoneError.innerHTML = '';
         return true;
     }
 }
 function validatePassword(){
-    let userPassword = document.getElementById('pswd').value;
-    let passError = document.getElementById('passwordError');
+
+    let userPassword = document.querySelector('#pswd').value;
+    let msg = document.querySelector('#message');
+    let passStrength = document.querySelector('#strength');
+    let passError = document.querySelector('#passwordError');
     let isContainsUppercase = /^(?=.*[A-Z]).*$/;
     let isContainsLowercase = /^(?=.*[a-z]).*$/;
     let isContainsNumber = /^(?=.*[0-9]).*$/;
     let isContainsSymbol = /^(?=.*[@#$&*]).*$/;
     let isValidLength = /^.{6,12}$/;
+     
 
-    if(userPassword.trim() == ''){
-        passError.innerHTML = "Enter a valid password";
-        return false;
-    }
-    // else if(userPassword.length < 5 || userPassword.length > 15 ){
-    //     passError.innerHTML = "*Password should have min 5 characters and max 15 characters"
-    //     return false;
-    // }
-     if
-          (!userPassword.match(isContainsUppercase) || !userPassword.match( isContainsLowercase) || !userPassword.match(isContainsNumber)
-           || !userPassword.match(isContainsSymbol) || !userPassword.match(isValidLength))
-           {
+        if(userPassword.length > 0){
+            msg.style.display="block";        
+        }
+        else{
+            msg.style.display="none";
+        }
+        if(!userPassword.match(isContainsUppercase) || !userPassword.match( isContainsLowercase) || !userPassword.match(isContainsNumber)
+        || !userPassword.match(isContainsSymbol)|| !userPassword.match(isValidLength)){
+            passStrength.innerHTML = "weak";
+            passStrength.style.color ="red";
+            msg.style.color = "red";
             passError.innerHTML = "*Password must contain [A-Z][a-z][0-9][@#$&*][6-12]"
-            return false;    
-           }   
-    else{
-        passError.innerHTML = ''
-        return true;
+           
+        
     }
-}
+    else if(userPassword.length >= 4 && userPassword.length < 6 ){
+            passStrength.innerHTML = "medium";
+            msg.style.color = "yellow";
+            passStrength.style.color = "yellow";
+            passError.innerHTML = "*Password must contain [A-Z][a-z][0-9][@#$&*][6-12]"
+          
+        }
+        else if(userPassword.length >=6){
+            passStrength.innerHTML = "strong";
+            passStrength.style.color = "lawngreen";         
+            msg.style.color = "lawngreen";
+            passError.innerHTML = '';
+            return false();
+        }
+        else{
+            passError.innerHTML = '';
+            return true;
+        }
+ 
+    }
 function validateConfirm(){
-    let userPassword = document.getElementById('pswd').value;
-    let confirmPassword = document.getElementById('pswdconfirm').value;
-    let confirmError = document.getElementById('confirmPswdError');
-
-    if (userPassword != confirmPassword){
-        confirmError.innerHTML = "*Password mismatch";
+    let userPassword = document.querySelector('#pswd').value;
+    let confirmPassword = document.querySelector('#pswdconfirm').value;
+    let confirmError = document.querySelector('#confirmPswdError');
+    
+     if (userPassword != confirmPassword){
+        confirmError.innerHTML = "*Confirm Password mismatch";
         return false;
     }
     else {
@@ -95,14 +129,16 @@ function validateConfirm(){
     }
 }
 function validateForm(){
-    let submitError = document.getElementById('subError');
-    
+    let submitError = document.querySelector('#subError');
+       
     if(!validateName() || !validateEmail() || !validateContact() || !validatePassword() || !validateConfirm()){
         submitError.innerHTML = "*Enter proper value in all fields"
+        
         return false;
     }
     else{
         submitError.innerHTML = '';
+        
         return true;
     }
 }

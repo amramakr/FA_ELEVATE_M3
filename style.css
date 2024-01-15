@@ -1,29 +1,147 @@
-body{
-  padding: 10px 350px;
-  background-color: cyan;
-}
-.formdesign{
-    font-size: 20px;
-}
-.formdesign input{
-    width: 30%;
-    padding : 12px 20px;
-    border: 1px solid black;
-    margin: 5px;
-    border-radius: 4px;
-    font-size: 15px;
-}
-#submit{
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Martian+Mono:wght@300&family=Poppins:wght@300;400;500;600&display=swap');
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+#navbar{
+    position: sticky;
+    top:0;
+    left:0;
+    z-index: 100;
+    padding: .5rem 5rem;
+    box-shadow: 5px 5px 20px black;
+    background: black;
+}
+.navbar .navbar-brand{
+    font-size: 25px;
+    font-weight: 800;
+    color:lawngreen !important;
+
+}
+#navbarSupportedContent a{
+    color:white;
+    border-bottom: 2px solid transparent;
+}
+/* while pointing home underline with green color */
+#navbarSupportedContent a:hover{
+    border-bottom: 2px solid lawngreen;
+}
+#navbarSupportedContent button{
+    background: lawngreen;
+    border-radius: 10px;
+    margin-left: 3rem;
+    cursor: pointer;
+}
+section{
+    width: 100%;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#home{
+    background:linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.3)),url(image01.jpeg) ;
+    background-size: cover;
+ 
+    
+    /* one after another */
+}
+#about{
+    background:linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.3)),url(image01.jpeg) ;
+    font-family: 'Poppins', sans-serif;
+    display:grid;
+    place-items: center;
+    align-items: center;
+    color: white;
+}
+.row{
+    width:80%;
+    
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px 10px;
+}
+.row .left{
+    overflow: hidden;
+}
+.row .left img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.row .right{
+    display:flex;
+    align-items: center;
+}
+.row .right .content{
+    padding: 20px;
+}
+.row .right .content p{
+    font-size: 16px;
+    line-height: 26px;
+    padding-bottom: 15px;
+}
+
+@media (max-width: 991px){
+    .row .right .content{
+        padding: 0px;
+    }
+}
+@media (max-width: 768px){
+    .row{
+        width:90%;
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+.formdesign{
+      font-size: 20px;
+  }
+.formdesign input{
+      width: 80%;
+      padding : 12px 20px;
+      border: 1px solid black;
+      margin: 5px;
+      border-radius: 4px;
+      font-size: 15px;
+      display:flex;  
+    
+  }
+  .formdesign #message{
+    position: relative;
+    /* bottom: -10px; */
+    color: #fff;
+    font-size: 15px;
+    display: none;
+}
+  #submit{
+  
+      border-radius: 9px;
+      height:50px;
+      font-size: 20px;
+      margin: 22px 10px;
+      background-color:lawngreen;
+      color: black;
+      width: 80%;
+      
+  }
+  #login{
+  
     border-radius: 9px;
-    width: 100px;
-    height:30px;
+    height:50px;
     font-size: 20px;
     margin: 22px 10px;
-    background-color: black;
-    color: white;
+    background-color:lawngreen;
+    color: black;
+    width: 80%;
     
 }
-    span{
-    color:red;
-}
+
+ 
+      span{
+      color:red;
+  }

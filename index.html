@@ -4,47 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SignUp form</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js"></script>
+    <title>Assignment3 | AmruthaR30</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <script src = "script.js"></script>
+    
+
 </head>
-<body>
+<body class="show-popup">
 
-    <h1>Registeration form</h1>
-    <form action = "success.html" onsubmit = "return validateForm()">
-     <div class="formdesign"> 
-        <label for="name"><b>Full Name:</b></label>
-        <input id="name" type="text" required onkeyup="validateName()" placeholder="Enter username" >
-        <span id="usernameError"></span>  
-    </div>
-    </br>
-    <div class="formdesign">
-        <label for="email"><b>Email Id:</b></label>
-        <input id="email" type="text" required onkeyup="validateEmail()" placeholder="Enter email id" >
-        <span id="emailError"></span>    
-    </div>  
-    </br>
-    <div class="formdesign">
-        <label for="contact"><b>Phone number:</b></label>
-        <input id="contact" type="phone"  required onkeyup="validateContact()" placeholder="Enter contact number">
-        <span id="contactError"></span>
-    </div>
-    </br>
-    <div class="formdesign">
-        <label for="pswd"><b>Password:</b></label>
-        <input id="pswd" type="password"  required onkeyup="validatePassword()" placeholder="Enter password">
-        <span id="passwordError"></span>
-    </div>
-    </br>
-    <div class="formdesign">
-        <label for="pswdconfirm"><b>Confirm Password:</b></label>
-        <input id="pswdconfirm" type="password" required onkeyup="validateConfirm()" placeholder="Confirm password">
-        <span id="confirmPswdError"></span>
-    </div>
-    </br>
-    <button id="submit" type ="submit"><b>Submit</b></button>
-    <span id="subError"></span>
-</form>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <div class="container-fluid">
+        
+          <a class="navbar-brand" href="#">BRILLIANCE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="courses.html">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>    
+            </ul>
+            </div>
+        </nav>
+            <section id="home">               
 
+            <form action = "login.html" onsubmit = "return validateForm()">
+                <h1  style="color:whitesmoke">Registeration form</h1><br>
+             <div class="formdesign"> 
+                <input id="name" type="text" required onkeyup="validateName()" placeholder="Full name" >
+                <span id="usernameError"></span>  
+            </div>
+            </br>
+            <div class="formdesign">
+                <input id="email" type="text" required onkeyup="validateEmail()" placeholder="Email" >
+                <span id="emailError"></span>    
+            </div>  
+            </br>
+            <div class="formdesign">
+                <input id="contact" type="phone"  required onkeyup="validateContact()" placeholder="Contact Number">
+                <span id="contactError"></span>
+            </div>
+            </br>
+            <div class="formdesign">
+                <input id="pswd" required placeholder="Password" onkeyup="validatePassword()">
+                <p id="message">Password is <span id="strength"></span></p>
+                <div><span id="passwordError"></span> </div> 
+            </div>
+            </br>
+            <div class="formdesign"> 
+                <input id="pswdconfirm" type="password" required onkeyup="validateConfirm()" placeholder="Confirm password">
+                <span id="confirmPswdError"></span>
+            </div>
+            </br>    
+           <h6 style="color:whitesmoke"
+              input type="checkbox" id="policy">
+              <label for="policy">    
+               On Signing up I agree with Terms & Conditions
+               
+                </label>
+              </h6>
+            <button id="submit" type ="submit"><b>Register</b></button>
+            <span id="subError"></span>
+        </form>
+    </section>
+        
+    
+      <script src = "script.js"></script>
 </body>
 </html>
