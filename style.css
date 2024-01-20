@@ -102,7 +102,7 @@ section{
       font-size: 20px;
   }
 .formdesign input{
-      width: 80%;
+      width: 70%;
       padding : 12px 20px;
       border: 1px solid black;
       margin: 5px;
@@ -126,7 +126,7 @@ section{
       margin: 22px 10px;
       background-color:lawngreen;
       color: black;
-      width: 80%;
+      width: 70%;
       
   }
   #login{
@@ -137,11 +137,10 @@ section{
     margin: 22px 10px;
     background-color:lawngreen;
     color: black;
-    width: 80%;
+    width: 70%;
     
 }
-
- 
       span{
       color:red;
+      font-size: 15px;
   }

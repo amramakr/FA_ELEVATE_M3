@@ -39,12 +39,14 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>    
             </ul>
+            <a class="nav-link active" href="#"> SignUp</a>
+            <a class="nav-link" href="login.html"> SignIn</a>
             </div>
         </nav>
             <section id="home">               
 
             <form action = "login.html" onsubmit = "return validateForm()">
-                <h1  style="color:whitesmoke">Registeration form</h1><br>
+                <h2  style="color:whitesmoke">Registeration form</h2><br>
              <div class="formdesign"> 
                 <input id="name" type="text" required onkeyup="validateName()" placeholder="Full name" >
                 <span id="usernameError"></span>  
@@ -71,15 +73,16 @@
                 <span id="confirmPswdError"></span>
             </div>
             </br>    
-           <h6 style="color:whitesmoke"
-              input type="checkbox" id="policy">
-              <label for="policy">    
-               On Signing up I agree with Terms & Conditions
-               
-                </label>
-              </h6>
-            <button id="submit" type ="submit"><b>Register</b></button>
-            <span id="subError"></span>
+    
+              <input type="checkbox" value="" id="checkValue" />
+              <label for="checkValue" style="color:whitesmoke">
+                I agree all statements in <a href="#!">Terms of service</a>
+              </label>
+           
+
+            <button id="submit" type ="submit"><b>SignUp</b></button>
+            <span id="subError"></span><br>
+            <a href="login.html" class="link"  style="color:whitesmoke">Already have an account ? Log in here</a>
         </form>
     </section>
         
